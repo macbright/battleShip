@@ -1,0 +1,11 @@
+.col-1{
+	border: 1px solid silver;
+	border-radius: 5px;
+	height: 45px;
+}
+.col-1:hover{
+	background: #cecdcd;
+}
+h8{
+	margin-top: 20px;
+}
