@@ -6,6 +6,30 @@
 .col-1:hover{
 	background: #cecdcd;
 }
+.docking{
+	background-image:url('../src/img/fire.gif');
+	background-size: contain;
+	padding: 5px;
+	border: 0;
+	border-radius: 0px;
+}
+.docking:hover{
+	background:url('../src/img/fire.gif');
+}
+.missed{
+	background:#3b0b0b;
+	border: 0;
+	border-radius: 0px;
+	font-size: 40px;
+	font-weight: bolder;
+	color: #fff;
+}
+.missed:hover{
+	background:#571111;
+}
+.img{
+	height: 44px;
+}
 h8{
 	margin-top: 20px;
 }
