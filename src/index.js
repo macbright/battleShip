@@ -3,7 +3,7 @@ import main from './main/main';
 import init from './dom/init';
 import gameBoard from './factories/gameBoard'
 
-init();
+init.game();
 main.myFleet();
 main.opponentFleet();
 
