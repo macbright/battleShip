@@ -33,3 +33,7 @@
 h8{
 	margin-top: 20px;
 }
+.strike{
+	background-color: #ff0000 !important;
+	text-decoration: line-through;
+}

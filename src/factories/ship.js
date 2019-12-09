@@ -1,16 +1,19 @@
 const ship = ((length) => {
-	let hits = 0;
-	const hit = (position) => {
-		hits += 1;
-		return position;
-	};
-	const isSunk = (() => {
-		return hits === length ? true : false
-	});
-	return {
-		length,
-		hit,
-		isSunk
-	}
+  let fire = [];
+  const hit = (position) => {
+    if(!fire.includes(position)){
+			fire.push(+position);
+    	return fire;
+		}
+  };
+  const isSunk = (() => {
+    return fire.length >= length ? true : false
+  });
+  return {
+    length,
+    hit,
+    isSunk,
+    fire
+  }
 });
 export { ship as default }

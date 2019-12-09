@@ -1,5 +1,5 @@
 import myBoard from '../dom/mainUser';
-
+import opponent from '../dom/opponent'
 const gameBoard = (() => {
 	let grid = new Array(100);
 	let opp = new Array(100);
@@ -18,8 +18,10 @@ const gameBoard = (() => {
 		for (let i = 0; i < ship.length; i++) {
 			if (orientation === 'vertical') {
 				opp[position + 10 * i] === undefined ? opp[position + 10 * i] = ship : alert("position is already occupied");
+				opponent(position + 10 * i);
 			} else {
 				opp[position + 10 * i] === undefined ? opp[position + 1 * i] = ship : alert("position is already occupied");
+				opponent(position + 1 * i);
 			}
 		}
 	};
