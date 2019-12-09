@@ -25,17 +25,18 @@ const gameBoard = (() => {
 			}
 		}
 	};
-	const receiveAttacks = (coordinate) => {
+	const receiveAttacks = (grid, coordinate) => {
 		//Determines whether or not the attack hit the ship
 		//Get ship position(s), get ship length, check if coordinate = ship position
 		if (grid[coordinate] === undefined || grid[coordinate] === '*') {
-			grid[coordinate] = '*';
+			// grid[coordinate] = '*';
+			return false
 		} else {
-			(grid[coordinate]).hit(coordinate);
-			grid[coordinate] = 'X'; //mark the ship as hit
+			// (grid[coordinate]).hit(coordinate);
+			// grid[coordinate] = 'X'; //mark the ship as hit
+			return true
 		}
 		// console.log(grid)
-		return grid;
 		//Then sends the ‘hit’ function to the correct ship
 		//Records the coordinates of the missed shot
 	};

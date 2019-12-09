@@ -14,15 +14,11 @@ const init = (() => {
 	document.querySelectorAll('.oppShips').forEach((element, index) => {
 		element.addEventListener('click', (e) => {
 			e.preventDefault();
-			// const index = element.getAttribute('data-id');
-			// check opp grid array, find out if the position is defined or not
-			if (gameBoard.oppBoard()[index] === undefined) {
+			if (!gameBoard.receiveAttacks(gameBoard.oppBoard(), index)) {
 				element.classList.add('missed');
 				element.innerHTML = '*';		
-				// update the ships hit method as missed 
-
-			} else {
-				// update its hits attribute 
+			} else if (gameBoard.receiveAttacks(gameBoard.oppBoard(), index) && element.innerHTML === '') {
+				element.innerHTML = 'x';
 				const theShip = gameBoard.oppBoard()[index]
 				theShip.hit(index);
 				element.classList.add('docking');
@@ -38,26 +34,28 @@ const init = (() => {
 			// if defined then it means there is a ship there ele there is not ship there
 		});
 	});
-	document.querySelectorAll('.ships').forEach((element, index) => {
+document.querySelectorAll('.ships').forEach((element, index) => {
 		element.addEventListener('click', (e) => {
 			e.preventDefault();
-			console.log(index)
-			if (gameBoard.board()[index] === undefined) {
+			if (!gameBoard.receiveAttacks(gameBoard.board(), index)) {
 				element.classList.add('missed');
-				element.innerHTML = '*';		
-			} else {
+				element.innerHTML = '*'
+				element.removeEventListener('click', (e));
+			} else if (gameBoard.receiveAttacks(gameBoard.board(), index) && element.innerHTML === '') {
 				const myShip = gameBoard.board()[index]
-				console.log(myShip)
+				element.innerHTML = 'x';
 				myShip.hit(index);
 				element.classList.add('docking');
 				if(myShip.isSunk()){
 					count2 += 1;
 					myInfo.innerHTML = `${10 - count2} ships left`;
 					myUpdate.style.display = 'none';
+
 				} else {
 					myUpdate.innerHTML =  `ship has ${myShip.length - myShip.fire.length} lives remaining`;
 					myUpdate.style.display = 'block';
 				}
+				element.removeEventListener('click', (e))
 			}
 			// if defined then it means there is a ship there ele there is not ship there
 		});
