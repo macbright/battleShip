@@ -1,7 +1,6 @@
 import './style.css';
 import main from './main/main';
 import init from './dom/init';
-import gameBoard from './factories/gameBoard'
 
 const $$ = document.querySelectorAll.bind(document);
 
@@ -10,8 +9,6 @@ main.myFleet();
 main.opponentFleet();
 
 const reset = () => {
-	$$('.btn').forEach((ele) => ele.addEventListener('click', () => window.location.reload()))
+	$$('.btn').forEach((ele) => ele.addEventListener('click', () => window.location.reload()));
 }
-reset()
-// console.log(gameBoard.board())
-// console.log(gameBoard.oppBoard())
+reset();

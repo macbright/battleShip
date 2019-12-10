@@ -3,14 +3,14 @@ import ship from '../factories/ship'
 import { templateElement } from '@babel/types';
 import player from '../factories/player'
 
-const $ = document.querySelector.bind(document)
-const $$ = document.querySelectorAll.bind(document)
+const $ = document.querySelector.bind(document);
+const $$ = document.querySelectorAll.bind(document);
 
 const init = (() => {
-	let displayInfo = document.querySelector('.oppInfo')
-	let update = document.querySelector('.oppUpdate')
-	let myUpdate = document.querySelector('.myUpdate')
-	let myInfo = document.querySelector('.myInfo')
+	let displayInfo = document.querySelector('.oppInfo');
+	let update = document.querySelector('.oppUpdate');
+	let myUpdate = document.querySelector('.myUpdate');
+	let myInfo = document.querySelector('.myInfo');
 	let count = 0;
 	let count2 = 0;
 	const user = player($$('.ships'),  'User');
@@ -21,18 +21,17 @@ const init = (() => {
 	const game = () => {
 		$$('.oppShips').forEach((element) => {
 			let index = element.getAttribute('data-id');
-			console.log(currPlayer.name)
 			element.addEventListener('click', (e) => {
 				e.preventDefault();
 				if ( element.innerHTML === '' && !gameStop) {
-					$$('.oppShips').forEach(el => el.classList.add('disabledDiv'))
-					$$('.ships').forEach(el => el.classList.remove('disabledDiv'))
+					$$('.oppShips').forEach(el => el.classList.add('disabledDiv'));
+					$$('.ships').forEach(el => el.classList.remove('disabledDiv'));
 					if (!gameBoard.receiveAttacks(gameBoard.oppBoard(), index)) {
 						element.classList.add('missed');
 						element.innerHTML = '*';		
 					} else if (gameBoard.receiveAttacks(gameBoard.oppBoard(), index) && element.innerHTML === '') {
 						element.innerHTML = 'x';
-						const theShip = gameBoard.oppBoard()[index]
+						const theShip = gameBoard.oppBoard()[index];
 						theShip.hit(index);
 						element.classList.add('docking');
 						if(theShip.isSunk()){
@@ -46,11 +45,9 @@ const init = (() => {
 					}
 					checkWinner(count, currPlayer);
 					setTimeout(() => {
-						compPlay()
-					}, 600)
-					
-				} 
-				console.log(currPlayer.name)
+						compPlay();
+					}, 600);
+				}
 			});
 		});
 	}
@@ -68,7 +65,8 @@ const init = (() => {
 	const checkWinner = (count, currPlayer) => {
 		if (10 - count <= 0){
 			$('.gameWin').style.display = 'block';
-			alert(`Hurray!!! ${currPlayer.name} won 🎉`)
+			$('.gameWin').innerHTML = `Hurray!!! ${currPlayer.name} won 🎉`;
+			alert(`Hurray!!! ${currPlayer.name} won 🎉`);
 			$$('.ships').forEach(el => el.classList.add('disabledDiv'));
 			$$('.oppShips').forEach(el => el.classList.add('disabledDiv'));
 			gameStop = true;
@@ -81,17 +79,14 @@ const init = (() => {
 		const element1 = $$('.ships');
 
 		if (!gameBoard.receiveAttacks(gameBoard.board(), arr)) {
-			// gameBoard.board()[arr] = '*'
 			element1[arr].classList.add('missed');
-			element1[arr].innerHTML = '*'
-
+			element1[arr].innerHTML = '*';
 		} else if (gameBoard.receiveAttacks(gameBoard.board(), arr) && element1[arr].innerHTML === '') {
-			const myShip = gameBoard.board()[arr]
-			// gameBoard.board()[arr] = 'x'
+			const myShip = gameBoard.board()[arr];
 			element1[arr].innerHTML = 'x';
 			myShip.hit(arr);
 			element1[arr].classList.add('docking');
-			if(myShip.isSunk()){
+			if (myShip.isSunk()){
 				count2 += 1;
 				myInfo.innerHTML = `${10 - count2} ships left`;
 				myUpdate.style.display = 'none';
@@ -101,13 +96,8 @@ const init = (() => {
 			}
 		}
 		checkWinner(count2, currPlayer);
-		currPlayer = user
-		console.log(gameBoard.board())
-				
+		currPlayer = user;
 	}
-
 	return { game }
-
-
 })();
 export { init as default };
