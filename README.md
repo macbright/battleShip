@@ -11,7 +11,7 @@ The project is part of a series of projects to be completed by students of [Micr
 - JEST
 
 ## Visit page  
-   [here]()
+   [here](https://raw.githack.com/Forison/battleShip/battleship/dist/index.html)
 or
 ## visit page on your local machine
 
