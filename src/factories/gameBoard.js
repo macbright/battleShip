@@ -18,26 +18,24 @@ const gameBoard = (() => {
 		for (let i = 0; i < ship.length; i++) {
 			if (orientation === 'vertical') {
 				opp[position + 10 * i] === undefined ? opp[position + 10 * i] = ship : alert("position is already occupied");
+				// opponent(position + 10 * i);
 			} else {
 				opp[position + 10 * i] === undefined ? opp[position + 1 * i] = ship : alert("position is already occupied");
+				// opponent(position + 1 * i);
 			}
 		}
 	};
 	const receiveAttacks = (grid, coordinate) => {
-		//Determines whether or not the attack hit the ship
-		//Get ship position(s), get ship length, check if coordinate = ship position
 		if (grid[coordinate] === undefined || grid[coordinate] === '*') {
 			// grid[coordinate] = '*';
 			return false
 		} else {
-			// (grid[coordinate]).hit(coordinate);
-			// grid[coordinate] = 'X'; //mark the ship as hit
+			// grid[coordinate] = 'x';
 			return true
 		}
-		// console.log(grid)
-		//Then sends the ‘hit’ function to the correct ship
-		//Records the coordinates of the missed shot
 	};
+
+	
 	const board = () => {
 		return grid;
 	};

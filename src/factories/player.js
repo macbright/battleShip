@@ -1,4 +1,4 @@
-const player = ((name) => {
-	return { name };
-});
-export { player as default };
+const player = (board, name) => {
+	return { board, name }
+};
+export { player as default }

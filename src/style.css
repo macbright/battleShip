@@ -40,3 +40,11 @@ h8{
 /* .ships, .oppShips {
 	cursor: pointer;
 } */
+
+.disabledDiv .win{
+    pointer-events: none;
+    opacity: 0.4;
+}
+.gameWin{
+	display: none;
+}
