@@ -1,45 +1,45 @@
 import gameBoard from '../factories/gameBoard';
-import ship from '../factories/ship'
-import { templateElement } from '@babel/types';
+
+
 import player from '../factories/player'
 
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
 
 const init = (() => {
-	let displayInfo = document.querySelector('.oppInfo');
-	let update = document.querySelector('.oppUpdate');
-	let myUpdate = document.querySelector('.myUpdate');
-	let myInfo = document.querySelector('.myInfo');
+	const displayInfo = document.querySelector('.oppInfo');
+	const update = document.querySelector('.oppUpdate');
+	const myUpdate = document.querySelector('.myUpdate');
+	const myInfo = document.querySelector('.myInfo');
 	let count = 0;
 	let count2 = 0;
-	const user = player($$('.ships'),  'User');
-	const comp = player($$('.oppShips'),  'Computer');
+	const user = player($$('.ships'), 'User');
+
 	let currPlayer = user;
 	let gameStop = false;
 
 	const game = () => {
 		$$('.oppShips').forEach((element) => {
-			let index = element.getAttribute('data-id');
+			const index = element.getAttribute('data-id');
 			element.addEventListener('click', (e) => {
 				e.preventDefault();
-				if ( element.innerHTML === '' && !gameStop) {
+				if (element.innerHTML === '' && !gameStop) {
 					$$('.oppShips').forEach(el => el.classList.add('disabledDiv'));
 					$$('.ships').forEach(el => el.classList.remove('disabledDiv'));
 					if (!gameBoard.receiveAttacks(gameBoard.oppBoard(), index)) {
 						element.classList.add('missed');
-						element.innerHTML = '*';		
+						element.innerHTML = '*';
 					} else if (gameBoard.receiveAttacks(gameBoard.oppBoard(), index) && element.innerHTML === '') {
 						element.innerHTML = 'x';
 						const theShip = gameBoard.oppBoard()[index];
 						theShip.hit(index);
 						element.classList.add('docking');
-						if(theShip.isSunk()){
+						if (theShip.isSunk()) {
 							count += 1;
 							displayInfo.innerHTML = `${10 - count} ships left`;
 							update.style.display = 'none';
 						} else {
-							update.innerHTML =  `ship has ${theShip.length - theShip.fire.length} lives remaining`;
+							update.innerHTML = `ship has ${theShip.length - theShip.fire.length} lives remaining`;
 							update.style.display = 'block';
 						}
 					}
@@ -52,10 +52,10 @@ const init = (() => {
 		});
 	}
 	const randomNum = (arr) => {
-		for(let i=0; i < 100; i+=1){
-			let index = Math.floor(Math.random() * (99 - 0) + 0);
+		for (let i = 0; i < 100; i += 1) {
+			const index = Math.floor(Math.random() * (99 - 0) + 0);
 			if ($$('.ships')[index].innerHTML === '') {
-				arr = index
+				arr = index;
 				break;
 			}
 		}
@@ -63,7 +63,7 @@ const init = (() => {
 	};
 
 	const checkWinner = (count, currPlayer) => {
-		if (10 - count <= 0){
+		if (10 - count <= 0) {
 			$('.gameWin').style.display = 'block';
 			$('.gameWin').innerHTML = `Hurray!!! ${currPlayer.name} won 🎉`;
 			alert(`Hurray!!! ${currPlayer.name} won 🎉`);
@@ -71,11 +71,11 @@ const init = (() => {
 			$$('.oppShips').forEach(el => el.classList.add('disabledDiv'));
 			gameStop = true;
 		}
-	}
+	};
 	const compPlay = () => {
 		$$('.ships').forEach(el => el.classList.add('disabledDiv'));
 		$$('.oppShips').forEach(el => el.classList.remove('disabledDiv'));
-		let arr = randomNum();
+		const arr = randomNum();
 		const element1 = $$('.ships');
 
 		if (!gameBoard.receiveAttacks(gameBoard.board(), arr)) {
@@ -86,18 +86,18 @@ const init = (() => {
 			element1[arr].innerHTML = 'x';
 			myShip.hit(arr);
 			element1[arr].classList.add('docking');
-			if (myShip.isSunk()){
+			if (myShip.isSunk()) {
 				count2 += 1;
 				myInfo.innerHTML = `${10 - count2} ships left`;
 				myUpdate.style.display = 'none';
 			} else {
-				myUpdate.innerHTML =  `ship has ${myShip.length - myShip.fire.length} lives remaining`;
+				myUpdate.innerHTML = `ship has ${myShip.length - myShip.fire.length} lives remaining`;
 				myUpdate.style.display = 'block';
 			}
 		}
 		checkWinner(count2, currPlayer);
 		currPlayer = user;
-	}
+	};
 	return { game }
 })();
 export { init as default };

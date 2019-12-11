@@ -1,3 +1,5 @@
+/*global test, a*/
+/*eslint no-undef: "error"*/
 import gameBoard from '../../factories/gameBoard';
 import ship from '../../factories/ship';
 

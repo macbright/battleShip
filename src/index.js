@@ -10,5 +10,5 @@ main.opponentFleet();
 
 const reset = () => {
 	$$('.btn').forEach((ele) => ele.addEventListener('click', () => window.location.reload()));
-}
+};
 reset();

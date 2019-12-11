@@ -18,5 +18,7 @@ module.exports = {
         'quotes': 0,
         'no-unused-expressions': 0,
         'arrow-parens': 0,
+        "no-tabs": 0,
+        "allowForLoopAfterthoughts": true 
     }
 };

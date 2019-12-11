@@ -1,15 +1,16 @@
+/*eslint no-alert: "error"*/
+
 import myBoard from '../dom/mainUser';
-import opponent from '../dom/opponent'
 
 const gameBoard = (() => {
-	let grid = new Array(100);
-	let opp = new Array(100);
+	const grid = new Array(100);
+	const opp = new Array(100);
 
 	const positionShip = (ship, position, orientation) => {
-		for (let i = 0; i < ship.length; i++) {
+		for (let i = 0; i < ship.length; i += 1) {
 			if (orientation === 'vertical') {
 				grid[position + 10 * i] === undefined ? grid[position + 10 * i] = ship : alert("position is already occupied");
-				
+
 				myBoard(position + 10 * i);
 			} else {
 				grid[position + 10 * i] === undefined ? grid[position + 1 * i] = ship : alert("position is already occupied");
@@ -26,12 +27,11 @@ const gameBoard = (() => {
 			}
 		}
 	};
-	const receiveAttacks = (grid, coordinate) => {
-		if (grid[coordinate] === undefined || grid[coordinate] === '*') {
+	const receiveAttacks = (board, coordinate) => {
+		if (board[coordinate] === undefined || board[coordinate] === '*') {
 			return false;
-		} else {
-			return true;
 		}
+		return true;
 	};
 
 	const board = () => {
@@ -43,4 +43,4 @@ const gameBoard = (() => {
 	};
 	return { positionShip, receiveAttacks, positionOpponent, board, oppBoard };
 })();
-export { gameBoard as default }
+export { gameBoard as default };
