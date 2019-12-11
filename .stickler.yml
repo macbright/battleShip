@@ -1,9 +1,8 @@
 linters:
   eslint:
-    config: './.eslintrc.js'
+    config: './eslint.config'
 files:
   ignore:
       - 'dist/*'
       - 'src/*'
       - 'webpack.config.js'
-      - './.eslintrc.js'
