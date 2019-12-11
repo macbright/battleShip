@@ -1,7 +1,7 @@
 import gameBoard from '../factories/gameBoard';
 
 
-import player from '../factories/player'
+import player from '../factories/player';
 
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
