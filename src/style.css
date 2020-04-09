@@ -1,6 +1,15 @@
+body {
+  background-image: url('../dist/asset/ship4.jpg');
+  background-position: center;
+  background-size: cover;
+  /* overflow: hidden; */
+	color: #fff;
+}
+
+
 .col-1{
-	border: 1px solid silver;
-	border-radius: 5px;
+	border: 2px solid #f80505;
+	border-radius: 7px;
 	height: 45px;
 }
 .col-1:hover{
