@@ -1,5 +1,5 @@
 body {
-  background-image: url('../dist/asset/ship4.jpg');
+  background-image: url('./asset/ship4.jpg');
   background-position: center;
   background-size: cover;
   /* overflow: hidden; */
@@ -16,14 +16,14 @@ body {
 	background: #cecdcd;
 }
 .docking{
-	background-image:url('../src/img/fire.gif');
+	background-image:url('./img/fire.gif');
 	background-size: contain;
 	padding: 5px;
 	border: 0;
 	border-radius: 0px;
 }
 .docking:hover{
-	background:url('../src/img/fire.gif');
+	background:url('./img/fire.gif');
 }
 .missed{
 	background:#3b0b0b;

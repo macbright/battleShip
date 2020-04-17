@@ -5,7 +5,7 @@ This project is designed with a Javascript(ES6) to emulate  a battleship game.
 
 
 
-![sample](./dist/asset/site.png)
+![sample](./src/asset/site.png)
 
 ## Background
 
