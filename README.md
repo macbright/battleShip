@@ -1,5 +1,7 @@
-# Battleship
+<h1 align=center> **Battleship Game** </h1>
 
+[![standard-readme compliant](https://img.shields.io/badge/standard--readme-OK-green.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
+[![dependencies Status](https://david-dm.org/dwyl/esta/status.svg)](https://david-dm.org/dwyl/esta)
 This is a Test Driven Development of the battleship game
 This project is designed with a Javascript(ES6) to emulate  a battleship game. 
 
@@ -16,7 +18,7 @@ This project is designed with a Javascript(ES6) to emulate  a battleship game.
 - Jest
 
 ## Demo
- Check out the live demo of the project. [Click](https://raw.githack.com/Forison/battleShip/battleship/dist/index.html)
+ Check out the live demo of the project. [Click](https://peaceful-cori-39aa5a.netlify.app/build/index.html)
 
 ## Usage
 > Clone the repository to your local machine
