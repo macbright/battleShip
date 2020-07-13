@@ -59,6 +59,11 @@ Boakye Addo Forison – addoboakyeforison@gmail.com
 4. Push to the branch (git push origin feature/[chosen name])
 5. Create a new Pull Request
 
+## Future Features
+1. include different levels of difficulties.
+
+2. add a sound effect to the game
+
 ## License
 
 The JavaScript Templates script is released under the
